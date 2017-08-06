@@ -8,14 +8,21 @@
 
         <div onlogin="loginCallback();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
 
-        <h3> 퍼미션 획득 </h3>
+        <h3> 퍼미션 요청 </h3>
         <p>
-            <button onclick="getScope('email');">이메일</button>
+            <button onclick="insertScope('email');">이메일</button>
 
-            <button onclick="getScope('user_likes');">라이크 페이지</button>
+            <button onclick="insertScope('user_likes');">라이크 페이지</button>
 
         </p>
+        
+        <h3> 퍼미션 취소 </h3>
+        <p>
+            <button onclick="removeScope('email');">이메일</button>
 
+            <button onclick="removeScope('user_likes');">라이크 페이지</button>
+
+        </p>
         
         <script src="env/envkey.js"></script>
         <script>
@@ -92,7 +99,7 @@
 
             }
 
-            function getScope(e){
+            function insertScope(e){
                 
                 /* facebook permissions scope : https://developers.facebook.com/docs/facebook-login/permissions */
                 
@@ -100,6 +107,12 @@
                     console.log(response);
                 }, {scope: e});
 
+            }
+
+            function removeScope(e){
+                FB.api('me/permissions/'+e, 'DELETE', function(e){
+                    console.log('remove scope', e.success);
+                });
             }
 
             
