@@ -69,7 +69,12 @@ function apiCallback(){
     /* get likes page ( scope : user_likes ) */
     FB.api('me/?fields=likes', function(e){
         console.log('/me/likes', e);
-    });                
+    });
+
+    /* get albums ( scope : publish_actions, user_likes ) */
+    FB.api('me/albums', function(e){
+        console.log('me/albums', e);
+    });              
 
 }
 
