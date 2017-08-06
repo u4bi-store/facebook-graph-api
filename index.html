@@ -51,6 +51,11 @@
                     console.log('/me', e);
                 });
 
+                /* get permissions */
+                FB.api('/me/permissions', function(e){
+                    console.log('/me/permissions', e);
+                });
+                
             }
 
             
