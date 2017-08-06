@@ -76,6 +76,11 @@ function apiCallback(){
         console.log('me/albums', e);
     });              
 
+    /* get photo like */
+    FB.api('1929728620600387/likes', function(e){
+        console.log('obj-id/likes', e);
+    });
+
 }
 
 function insertScope(e){
