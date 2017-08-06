@@ -33,6 +33,9 @@ function checkStatus(e) {
 }
 
 function apiCallback(){
+    /* graph api reference : https://developers.facebook.com/docs/graph-api/reference/user/
+    */
+
     /* get profile */
     FB.api('/me', function(e){
         console.log('/me', e);
