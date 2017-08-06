@@ -8,8 +8,12 @@
 
         <div onlogin="loginCallback();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
 
+        <h3> 퍼미션 획득 </h3>
         <p>
-            <button onclick="getScope('email');">이메일 퍼미션 획득</button>
+            <button onclick="getScope('email');">이메일</button>
+
+            <button onclick="getScope('user_likes');">라이크 페이지</button>
+
         </p>
 
         
@@ -61,7 +65,7 @@
                     console.log('/me/permissions', e.data);
                 });
                 
-                /* get email */
+                /* get email ( scope : email ) */
                 FB.api('me/?fields=email', function(e){
                     console.log('/me/email', e);
                 });
@@ -69,6 +73,21 @@
                 /* get picture */
                 FB.api('me/?fields=picture', function(e){
                     console.log('/me/picture', e.picture.data.url);
+                });
+
+                /* get gender */
+                FB.api('me/?fields=gender', function(e){
+                    console.log('/me/gender', e);
+                });
+
+                /* get timeline link */
+                FB.api('me/?fields=link', function(e){
+                    console.log('/me/link', e);
+                });    
+
+                /* get likes page ( scope : user_likes ) */
+                FB.api('me/?fields=likes', function(e){
+                    console.log('/me/likes', e);
                 });                
 
             }
