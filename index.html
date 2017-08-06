@@ -11,6 +11,8 @@
         
         <script src="env/envkey.js"></script>
         <script>
+            /* facebook permissions scope : https://developers.facebook.com/docs/facebook-login/permissions */
+
             window.fbAsyncInit = function() {
                 FB.init({
                 appId      : API_KEY,
@@ -55,7 +57,7 @@
                 FB.api('/me/permissions', function(e){
                     console.log('/me/permissions', e);
                 });
-                
+
             }
 
             
