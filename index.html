@@ -8,11 +8,14 @@
 
         <div onlogin="loginCallback();" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
 
+        <p>
+            <button onclick="getScope('email');">이메일 퍼미션 획득</button>
+        </p>
+
         
         <script src="env/envkey.js"></script>
         <script>
-            /* facebook permissions scope : https://developers.facebook.com/docs/facebook-login/permissions */
-
+        
             window.fbAsyncInit = function() {
                 FB.init({
                 appId      : API_KEY,
@@ -55,8 +58,23 @@
 
                 /* get permissions */
                 FB.api('/me/permissions', function(e){
-                    console.log('/me/permissions', e);
+                    console.log('/me/permissions', e.data);
                 });
+                
+                /* get email */
+                FB.api('me/?fields=email', function(e){
+                    console.log('/me/email', e);
+                });                
+
+            }
+
+            function getScope(e){
+                
+                /* facebook permissions scope : https://developers.facebook.com/docs/facebook-login/permissions */
+                
+                FB.login(function(response) {
+                    console.log(response);
+                }, {scope: e});
 
             }
 
