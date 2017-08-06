@@ -81,6 +81,16 @@ function apiCallback(){
         console.log('obj-id/likes', e);
     });
 
+    /* get friend list */
+    FB.api('100006898020594/friendlists', function(e){
+        console.log('friend list 1', e);
+    });
+
+    /* get friend list */
+    FB.api('100006898020594/friends', function(e){
+        console.log('friend list 2', e);
+    });
+
 }
 
 function insertScope(e){
