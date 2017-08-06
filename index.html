@@ -64,6 +64,11 @@
                 /* get email */
                 FB.api('me/?fields=email', function(e){
                     console.log('/me/email', e);
+                });
+
+                /* get picture */
+                FB.api('me/?fields=picture', function(e){
+                    console.log('/me/picture', e.picture.data.url);
                 });                
 
             }
